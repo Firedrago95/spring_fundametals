@@ -9,8 +9,10 @@ import hello.core.member.MemoryMemberRepository;
 public class OrderServiceImpl implements OrderService {
     
     private final MemberRepository memberRepository = new MemoryMemberRepository();
-    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
-    
+//  추상과 구체 둘다의존 DIP 원칙 위반
+//  private final DiscountPolicy discountPolicy = new FixDiscountPolicy  
+    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
+
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
         Member member = memberRepository.findById(memberId);
