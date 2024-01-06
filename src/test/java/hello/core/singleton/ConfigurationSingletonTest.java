@@ -29,4 +29,17 @@ public class ConfigurationSingletonTest {
         Assertions.assertThat(memberService.getMemberRepository()).isSameAs(memberRepository);
         Assertions.assertThat(orderService.getMemberRepository()).isSameAs(memberRepository);
     }
+
+    @Test
+    void configurationDeep() {
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig bean = ac.getBean(AppConfig.class);
+
+        System.out.println("bean = " + bean.getClass());
+        /** bean = class hello.core.AppConfig$$SpringCGLIB$$0
+         *
+         *   스프링은 바이트코드를 조작해서 AppConfig@CGLIB 클래스로 빈을 만든다. (AppConfig 상속)
+         *   내부에서는 빈이 있으면 빈 반환하고, 없으면 생성, 등록한뒤 반환하도록 오버라이딩 되어있겠군
+        **/
+    }
 }
