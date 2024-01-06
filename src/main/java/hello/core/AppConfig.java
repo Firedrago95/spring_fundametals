@@ -14,13 +14,16 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
+    //@Bean memberService -> new MemoryMemberRepository()
+    //@Bean orderServic -> new MemoryMemberRepository()
+
     @Bean
     public MemberService memberService() {
         return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
-    private static MemberRepository memberRepository() {
+    public MemberRepository memberRepository() {
         return new MemoryMemberRepository();
     }
 
