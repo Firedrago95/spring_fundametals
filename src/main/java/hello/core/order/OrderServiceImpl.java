@@ -11,9 +11,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrderServiceImpl implements OrderService {
 
-
-    private MemberRepository memberRepository;
-    private DiscountPolicy discountPolicy ;
+    // 생성자 주입시 final 사용가능 컴파일 단계에서 오류 검증 가능
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy ;
 
     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
