@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 public class BeanLifeCycleTest {
@@ -15,14 +16,8 @@ public class BeanLifeCycleTest {
         ac.close();
     }
 
+    @ComponentScan
     @Configuration
     static class LifeCycleConfig {
-        @Bean
-        public NetworkCilent networkCilent() {
-            NetworkCilent networkCilent = new NetworkCilent();
-            networkCilent.setUrl("http://hello-spirng.dev");
-            return networkCilent;
-        }
     }
-
 }
