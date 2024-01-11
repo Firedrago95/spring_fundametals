@@ -24,6 +24,9 @@ public class PrototypeTest {
         assertThat(protoTypeBean1).isNotSameAs(protoTypeBean2);
 
         ac.close();
+
+        protoTypeBean1.destroy();
+        protoTypeBean2.destroy();
     }
 
     @Scope("prototype")
