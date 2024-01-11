@@ -17,7 +17,7 @@ public class BeanLifeCycleTest {
 
     @Configuration
     static class LifeCycleConfig {
-        @Bean
+        @Bean(initMethod = "init", destroyMethod = "close")
         public NetworkCilent networkCilent() {
             NetworkCilent networkCilent = new NetworkCilent();
             networkCilent.setUrl("http://hello-spirng.dev");
