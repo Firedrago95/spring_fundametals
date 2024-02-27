@@ -24,12 +24,12 @@ public class AppConfig {
     }
 
     @Bean
-    private MemberRepository memberRepository() {
+    public MemberRepository memberRepository() {
         return new MemoryMemberRepository();
     }
 
     @Bean
-    private static RateDiscountPolicy discountPolicy() {
+    public static RateDiscountPolicy discountPolicy() {
         return new RateDiscountPolicy();
     }
 }
